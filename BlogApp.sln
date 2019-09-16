@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.WebUI", "BlogApp.WebUI\BlogApp.WebUI.csproj", "{CC2C6A78-CD9A-45F2-8F8D-9AD7DF116B5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Data", "BlogApp.Data\BlogApp.Data.csproj", "{7370FA3B-0BD0-483C-BE8C-E89422FED0BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Entity", "Blog.Entity\Blog.Entity.csproj", "{D47CFE50-1F75-41A6-8816-752CDAA787BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CC2C6A78-CD9A-45F2-8F8D-9AD7DF116B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC2C6A78-CD9A-45F2-8F8D-9AD7DF116B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC2C6A78-CD9A-45F2-8F8D-9AD7DF116B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7370FA3B-0BD0-483C-BE8C-E89422FED0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7370FA3B-0BD0-483C-BE8C-E89422FED0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7370FA3B-0BD0-483C-BE8C-E89422FED0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7370FA3B-0BD0-483C-BE8C-E89422FED0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D47CFE50-1F75-41A6-8816-752CDAA787BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47CFE50-1F75-41A6-8816-752CDAA787BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47CFE50-1F75-41A6-8816-752CDAA787BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47CFE50-1F75-41A6-8816-752CDAA787BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
