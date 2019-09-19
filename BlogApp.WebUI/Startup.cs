@@ -58,7 +58,7 @@ namespace BlogApp.WebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+            SeedData.Seed(app);
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
