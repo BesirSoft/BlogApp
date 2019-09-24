@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Data.Concrate.EfCore;
+using BlogApp.Data.Abstract;
+using BlogApp.Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,7 +38,8 @@ namespace BlogApp.WebUI
 
             ///burada verdiğimiz ikinci paretmetre farklı kütüphandede yaptığımız içindir
 
-
+            services.AddTransient<IBlogRepostory, EfBlogRepostory>();
+            services.AddTransient<ICategoryRepostory, EfCategoryRepository>();
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("BlogApp.WebUI")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -58,7 +61,7 @@ namespace BlogApp.WebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            SeedData.Seed(app);
+            //SeedData.Seed(app);
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -5,14 +5,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.WebUI.Models;
+using BlogApp.Data.Abstract;
 
 namespace BlogApp.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private IBlogRepostory blogRepository;
+        public HomeController(IBlogRepostory _blogRepository)
+        {
+            blogRepository = _blogRepository;
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(blogRepository.GetAll());
         }
 
 

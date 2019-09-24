@@ -12,6 +12,8 @@ namespace BlogApp.WebUI
 {
     public class Program
     {
+
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
@@ -19,6 +21,7 @@ namespace BlogApp.WebUI
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+            .UseDefaultServiceProvider(options=>options.ValidateScopes=false);
     }
 }
