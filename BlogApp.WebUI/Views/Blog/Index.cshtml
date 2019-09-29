@@ -5,64 +5,64 @@
 
 <div class="container">
 
-
-
-    <h2></h2>
-    <hr />
-
     <div class="row">
-        <div class="col">
-            @if (Model.Count()>0)
-            {
-            <table>
-                <thead>
-                    <tr>
 
-                        <th>Id</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Isaprowed</th>
-                        <th>Date</th>
 
-                    </tr>
-                </thead>
-                <tbody></tbody>
-                @foreach (var item in Model)
-                {
 
-                <tr>
+            <div class="row">
+                <div class="col">
+                    @if (Model.Count() > 0)
+                    {
+                        <table>
+                            <thead>
+                                <tr>
 
-                    <td>@item.Id</td>
-                    <td>@item.Image</td>
-                    <td>@item.Title</td>
-                    <td>@item.Id</td>
-                    <td>@item.Id</td>
-                    <td>@item.Id</td>
+                                    <th>Id</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Isaprowed</th>
+                                    <th>Date</th>
 
-                </tr>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            @foreach (var item in Model)
+                            {
 
-                }
+                                <tr>
 
-            </table>
+                                    <td>@item.Id</td>
+                                    <td>@item.Image</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.isHome</td>
+                                    <td>@item.isApproved</td>
+                                    <td>@item.Id</td>
 
-            }
-            else
-            {
+                                </tr>
 
-                <div class="alert alert-danger">
+                            }
 
-                    blog eklenmemei
+                        </table>
+
+                    }
+                    else
+                    {
+
+                        <div class="alert alert-danger">
+
+                            blog eklenmemei
+                        </div>
+                    }
+
+
+
+
                 </div>
-            }
 
 
 
 
+            </div>
         </div>
 
-
-
-
     </div>
-</div>
-

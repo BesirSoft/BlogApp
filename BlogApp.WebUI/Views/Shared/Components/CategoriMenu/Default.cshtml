@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="list-group">
+
+
+  @foreach (var item in Model)
+  {
+
+        <a href="#" class="list-group-item list-group-item-action">@item.Name</a>
+    }
+
+
+
+    <a href="#" class="list-group-item list-group-item-action active">
+        Cras justo odio
+    </a>
+
+
+</div>
+

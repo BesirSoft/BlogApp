@@ -18,7 +18,7 @@ namespace BlogApp.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            var bloglar = blogRepository.GetAll();
+            var bloglar = blogRepository.GetAll().Where(p=>p.isHome==true) ;
 
 
             return View(bloglar);
