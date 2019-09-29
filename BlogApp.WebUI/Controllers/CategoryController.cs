@@ -18,8 +18,8 @@ namespace BlogApp.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            
-            return View();
+          var tum_category=  repsitry.GetAll();
+            return View(tum_category);
         }
 
         [HttpGet]

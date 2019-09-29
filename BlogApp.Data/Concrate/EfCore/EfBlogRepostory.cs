@@ -1,5 +1,6 @@
 ﻿using BlogApp.Data.Abstract;
 using BlogApp.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace BlogApp.Data.Concrate.EfCore
         public void AddBlog(Blog entity)
         {
             context.Blogs.Add(entity);
+          
             context.SaveChanges();
         }
 
@@ -33,9 +35,18 @@ namespace BlogApp.Data.Concrate.EfCore
 
         public IQueryable<Blog> GetAll()
         {
-            return context.Blogs;
+            //context.Blogs.FromSql("");
+            //return context.Blogs;
+            var blog = context.Blogs.FromSql("select * from Blogs where Body = 'banan'");
+            return blog;
         }
 
+
+        public IQueryable<Blog> GetAll2()
+        {
+           var blog= context.Blogs.FromSql("select * from Blogs");
+            return blog;
+        }
         public Blog GetByIId(int blogId)
         {
             return context.Blogs.FirstOrDefault(p => p.Id == blogId);

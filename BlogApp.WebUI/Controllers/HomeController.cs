@@ -18,7 +18,10 @@ namespace BlogApp.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            return View(blogRepository.GetAll());
+            var bloglar = blogRepository.GetAll();
+
+
+            return View(bloglar);
         }
 
 

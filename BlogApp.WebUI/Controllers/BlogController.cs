@@ -33,7 +33,7 @@ namespace BlogApp.WebUI.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
+          
 
             var Category = categoryrepostory.GetAll();
             ViewBag.Categoryes = new SelectList(categoryrepostory.GetAll(), "Id", "Name");
@@ -46,9 +46,48 @@ namespace BlogApp.WebUI.Controllers
         public IActionResult Create(Blog model)
         {
 
-            repostory.AddBlog(model);
+            model.Date = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                 repostory.AddBlog(model);
+                return RedirectToAction("List");
+            }
+            return View();
 
-            return RedirectToAction("List");
+            
+        }
+
+
+
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+
+          
+            var Category = repostory.GetByIId(id); 
+            ViewBag.Categoryes = new SelectList(categoryrepostory.GetAll(), "Id", "Name");
+
+
+            return View(Category);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Blog model)
+        {
+
+           
+            if (ModelState.IsValid)
+            {
+
+                ViewData["message"] = $"{model.Title} güncellendi";
+
+                repostory.UpdateBlog(model);
+                return RedirectToAction("List");
+            }
+            return View();
+
+
         }
 
         public IActionResult Delete()
