@@ -80,7 +80,7 @@ namespace BlogApp.WebUI.Controllers
             if (ModelState.IsValid)
             {
 
-                ViewData["message"] = $"{model.Title} güncellendi";
+                TempData["message"] = $"{model.Title} güncellendi";
 
                 repostory.UpdateBlog(model);
                 return RedirectToAction("List");
@@ -90,11 +90,70 @@ namespace BlogApp.WebUI.Controllers
 
         }
 
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
+        {
+            repostory.DleteBlog(id);
+            return RedirectToAction("List");
+        }
+
+
+
+
+
+
+        [HttpGet]
+
+
+
+
+        public IActionResult AddOrUpdate(int? id)
+        {
+            ViewBag.Categoryes = new SelectList(categoryrepostory.GetAll(), "Id", "Name");
+            if (id==null)
+            {
+              
+                return View();
+            }
+            else
+            {
+                //not id null olduğu için int dönüşümü saülandı
+
+                var model = repostory.GetByIId((int)id);
+
+                return View(model);
+            }
+
+           
+
+
+            
+            
+
+        }
+        [HttpPost]
+
+        public IActionResult AddOrUpdate(Blog model)
         {
 
-            return View();
+
+            if (ModelState.IsValid)
+            {
+                repostory.SaveBlog(model);
+                TempData["message"] = $"{model.Title} güncellendi";
+                return RedirectToAction("List");
+            }
+            else
+            {
+
+
+            }
+            ViewBag.Categoryes = new SelectList(categoryrepostory.GetAll(), "Id", "Name");
+            return View(model);
+
         }
+
+
+
 
     }
 }

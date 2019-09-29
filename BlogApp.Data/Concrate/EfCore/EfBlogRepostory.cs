@@ -29,7 +29,7 @@ namespace BlogApp.Data.Concrate.EfCore
             if (blog !=null)
             {
                 context.Remove(blog);
-
+                context.SaveChanges();
             }
         }
 
@@ -50,6 +50,31 @@ namespace BlogApp.Data.Concrate.EfCore
         public Blog GetByIId(int blogId)
         {
             return context.Blogs.FirstOrDefault(p => p.Id == blogId);
+        }
+
+        public void SaveBlog(Blog entity)
+        {
+            if (entity.Id==0)
+            {
+                context.Blogs.Add(entity);
+            }
+            else
+            {
+
+                var blog = GetByIId(entity.Id);
+                blog.Image =entity.Image;
+                blog.Desciription = entity.Desciription;
+                blog.CategoryId = entity.CategoryId;
+                blog.Body = entity.Body;
+                blog.isApproved = entity.isApproved;
+                blog.Title = entity.Title;
+
+               
+
+            }
+
+            context.SaveChanges();
+
         }
 
         public void UpdateBlog(Blog entity)
