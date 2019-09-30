@@ -14,7 +14,7 @@
            asp-controller="Blog"
            asp-action="Index"
            asp-route-id="@item.Id"
-           class="list-group-item"
+           class="list-group-item  (@ViewBag.SelectedCategory==item.CategoryId.ToString()? "active":"" )"
            > @item.Name</a>
 
 

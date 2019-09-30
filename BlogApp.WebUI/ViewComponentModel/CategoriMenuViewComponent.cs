@@ -18,7 +18,7 @@ namespace BlogApp.WebUI.ViewComponentModel
 
         public IViewComponentResult Invoke()
         {
-
+            ViewBag.SelectedCategory = RouteData?.Values["id"];
             return View(_categoryrepostory.GetAll());
         }
 
