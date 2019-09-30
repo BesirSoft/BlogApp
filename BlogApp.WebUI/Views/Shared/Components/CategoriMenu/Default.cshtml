@@ -9,14 +9,21 @@
   @foreach (var item in Model)
   {
 
-        <a href="#" class="list-group-item list-group-item-action">@item.Name</a>
+        <a 
+           
+           asp-controller="Blog"
+           asp-action="Index"
+           asp-route-id="@item.Id"
+           class="list-group-item"
+           > @item.Name</a>
+
+
+
     }
 
 
 
-    <a href="#" class="list-group-item list-group-item-action active">
-        Cras justo odio
-    </a>
+  
 
 
 </div>

@@ -5,18 +5,18 @@
 
 <div @foreach (var item in Model) { <div class="card mt-2">
 
-        <div class="card-header">
-            Featured
-        </div>
-        <img src="~/img/@item.Image" class="card-img-top" alt="..." />
+    <div class="card-header">
 
-
-
-        <div class="card-body">
-            <h5 class="card-title">@item.Title</h5>
-            <p class="card-text">@item.Desciription</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
     </div>
+    <img class="card-img-top" src="/img/@item.Image" alt="Card image cap">
+
+
+
+    <div class="card-body">
+        <h5 class="card-title">@item.Title</h5>
+        <p class="card-text">@item.Desciription</p>
+        <a href="/Blog/Details/@item.Id" class="btn btn-primary">Detaya Git</a>
+    </div>
+</div>
 
 }

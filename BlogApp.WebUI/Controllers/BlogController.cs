@@ -18,9 +18,18 @@ namespace BlogApp.WebUI.Controllers
             repostory = _repostory;
             categoryrepostory = _categoryrepostory;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            return View();
+
+            if (id==null)
+            {
+                return View(repostory.GetAll());
+            }
+            else
+            {
+                return View(repostory.GetAll().Where(p=>p.CategoryId==id));
+            }
+           
         }
 
         public IActionResult List()
@@ -97,6 +106,13 @@ namespace BlogApp.WebUI.Controllers
         }
 
 
+
+
+        public IActionResult Details(int id)
+        {
+            
+            return View(repostory.GetByIId(id));
+        }
 
 
 

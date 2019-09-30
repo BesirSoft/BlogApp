@@ -1,68 +1,42 @@
 ﻿@model IEnumerable<Blog>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Home Page";
 }
+
+
+
+
+<div class="jumbotron jumbotron-fluid">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 
 <div class="container">
 
-    <div class="row">
+    <div class="row ">
+
+        <div class="col-m-3 " style="margin-right:12px">
+
+            @await Component.InvokeAsync("CategoriMenu")
 
 
 
-            <div class="row">
-                <div class="col">
-                    @if (Model.Count() > 0)
-                    {
-                        <table>
-                            <thead>
-                                <tr>
-
-                                    <th>Id</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Isaprowed</th>
-                                    <th>Date</th>
-
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                            @foreach (var item in Model)
-                            {
-
-                                <tr>
-
-                                    <td>@item.Id</td>
-                                    <td>@item.Image</td>
-                                    <td>@item.Title</td>
-                                    <td>@item.isHome</td>
-                                    <td>@item.isApproved</td>
-                                    <td>@item.Id</td>
-
-                                </tr>
-
-                            }
-
-                        </table>
-
-                    }
-                    else
-                    {
-
-                        <div class="alert alert-danger">
-
-                            blog eklenmemei
-                        </div>
-                    }
-
-
-
-
-                </div>
-
-
-
-
-            </div>
         </div>
 
+        <div class="col-m-9 ">
+
+
+
+            @Html.Partial("_BlogList", Model)
+
+
+            <img class="card-img-top" src="~/img/1.jpeg" alt="Card image cap">
+
+        </div>
+        <div></div>
     </div>
+</div>
